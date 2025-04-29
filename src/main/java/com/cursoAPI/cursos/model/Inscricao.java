@@ -1,4 +1,4 @@
-package com.seuprojeto.cursos.model;
+package com.cursoAPI.cursos.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;

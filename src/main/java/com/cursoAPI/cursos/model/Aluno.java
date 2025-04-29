@@ -1,10 +1,10 @@
-package com.seuprojeto.cursos.model;
+package com.cursoAPI.cursos.model;
 
 import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class Curso {
+public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,12 +12,10 @@ public class Curso {
     @Column(nullable = false)
     private String nome;
 
-    private String descricao;
+    @Column(nullable = false, unique = true)
+    private String email;
 
-    @Column(nullable = false)
-    private int cargaHoraria;
-
-    @OneToMany(mappedBy = "curso")
+    @OneToMany(mappedBy = "aluno")
     private List<Inscricao> inscricoes;
 
     // Getters e Setters
@@ -25,10 +23,8 @@ public class Curso {
     public void setId(Long id) { this.id = id; }
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
-    public String getDescricao() { return descricao; }
-    public void setDescricao(String descricao) { this.descricao = descricao; }
-    public int getCargaHoraria() { return cargaHoraria; }
-    public void setCargaHoraria(int cargaHoraria) { this.cargaHoraria = cargaHoraria; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
     public List<Inscricao> getInscricoes() { return inscricoes; }
     public void setInscricoes(List<Inscricao> inscricoes) { this.inscricoes = inscricoes; }
 }
